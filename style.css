@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 36px;
+}
+
+#header-logo img{
+    height: 150px;
+    object-fit: cover;
+}
+
+nav{
+    flex: 1;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    color: #000;
+}
+
+li a{
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 54px 0;
+    width: 200px;
+    text-decoration: none;
+    border-radius: 100px;
+}
+
+li a:hover{
+    background-color: #cbb3fe36;
+}
+
+#header-phone-number{
+    width: 250px;
+    height: 100px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #cbb3fe;
+    border-radius: 100px;
+}
