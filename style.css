@@ -25,6 +25,7 @@ li:last-child a:hover{
 .navbar-nav{
     -ms-flex-align: center!important;
     align-items: center!important;
+    width:100%;
 
 }
 
