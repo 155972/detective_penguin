@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    font-family: Roboto;
+    text-align: center;
+    font-size: 5vh;
+}
+li:last-child a{
+    background-color: #cbb3fe;
+    border-radius: 100px;
+}
+#mainmenu{
+    width:100%;
+}
+.nav-item img{
+    width: 7vw;
+}
+
+li a{
+    display: block;
+    color: #000;
+    border-radius: 100px;
+    
+}
+
+li a:hover{
+    background-color: #cbb3fe36;
+    color: black;
+}
