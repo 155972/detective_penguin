@@ -9,6 +9,8 @@
     <title>Detektyw Pingwin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -19,26 +21,26 @@
                 </button>
                 <div class="navabar" id="mainmenu">
                     <ul class="navbar-nav justify-content-between">
-                        <li class="nav-item navbar-brand">
-                            <img class="d-inline-block mr-1 align-bottom" src="logo.PNG" alt="Detekwy Pingwin">
+                        <li class="nav-item navbar-brand" onClick="contentChange('client_pages/home.html')">
+                            <img class="d-inline-block mr-1 align-bottom" src="logo.PNG" alt="Detektyw Pingwin">
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">FAQ</a>
+                        <li class="nav-item" onClick="contentChange('client_pages/FAQ.html')">
+                            <a class="nav-link">FAQ</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Cennik</a>
+                        <li class="nav-item" onClick="contentChange('client_pages/price_list.php')">
+                            <a class="nav-link">Cennik</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Usługi</a>
+                        <li class="nav-item" onClick="contentChange('client_pages/services.php')">
+                            <a class="nav-link">Usługi</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Kontakt</a>
+                        <li class="nav-item" onClick="contentChange('client_pages/contact.php')">
+                            <a class="nav-link">Kontakt</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">O&nbsp;nas</a>
+                        <li class="nav-item" onClick="contentChange('client_pages/about_us.html')">
+                            <a class="nav-link">O&nbsp;nas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Zaloguj&nbsp;się</a>
+                        <li class="nav-item" onClick="contentChange('client_pages/log.php')">
+                            <a class="nav-link">Zaloguj&nbsp;się</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="tel:+48622000781">+48&nbsp;622&nbsp;000&nbsp;781</a>
@@ -48,8 +50,14 @@
 
             </nav>
     </header>
-    <section>
+    <script>
+        function contentChange(path){
+            $("#includedContent").load(path);
+        }
+    </script>
+    <div id="includedContent">
+        <script>$("#includedContent").load('client_pages/home.html');</script>
+    </div>
 
-    </section>
 </body>
 </html>
