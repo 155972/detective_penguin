@@ -13,11 +13,20 @@ li:last-child a{
     background-color: #cbb3fe;
     border-radius: 100px;
 }
+li:last-child a:hover{
+    background-color: #9f73ff;
+}
 #mainmenu{
     width:100%;
 }
 .nav-item img{
-    width: 7vw;
+    height:15vh;
+}
+.navbar-nav{
+    -ms-flex-align: center!important;
+    align-items: center!important;
+    width:100%;
+
 }
 
 li a{
