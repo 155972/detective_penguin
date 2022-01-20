@@ -1,6 +1,7 @@
 <?php
-session_start()
-
+    session_start();
+    if(isset($_SESSION['log_in']) && $_SESSION['log_in'])
+        $logged_in = true;
 ?>
 
 <!DOCTYPE html>
@@ -16,10 +17,13 @@ session_start()
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <header>
+<header>
             <nav class="navbar bg-light navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji" >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="navabar" id="mainmenu">
-                    <ul class="navbar-nav d-flex justify-content-between">
+                    <ul class="navbar-nav justify-content-between">
                         <li class="nav-item navbar-brand">
                             <img class="d-inline-block mr-1 align-bottom" src="logo.PNG" alt="Detekwy Pingwin">
                         </li>
@@ -36,16 +40,17 @@ session_start()
                             <a class="nav-link" href="#">Kontakt</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">O nas</a>
+                            <a class="nav-link" href="#">O&nbsp;nas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">+48&nbsp;622&nbsp;000&nbsp;781</a>
+                            <a class="nav-link" href="log.php">Zaloguj&nbsp;się</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="tel:+48622000781">+48&nbsp;622&nbsp;000&nbsp;781</a>
                     </ul>
-    
                 </div>
-    
             </nav>
-    </header>
+    </header>  
     
     <section>
 <?php

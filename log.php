@@ -1,3 +1,9 @@
+<?php
+    session_start();
+	if(isset($_SESSION['log_in']) && $_SESSION['log_in'])
+		header('Location: index.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -13,7 +19,6 @@
 <body>
     <header>
             <nav class="navbar bg-light navbar-expand-lg">
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji" >
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -49,14 +54,6 @@
             </nav>
     </header>  
     <section>
-    <?php
-	if(isset($_SESSION['user']))
-	{
-		header('Location: index.php');
-	}
-	else
-	{
-?>
     <div id="login">
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
@@ -65,8 +62,8 @@
                         <form id="login-form" class="form" action="logCHCK.php" method="post">
                             <h3 class="text-center text-dark">Login</h3>
                             <div class="form-group">
-                                <label for="username" class="text-dark">Email:</label><br>
-                                <input type="text" name="username" required id="username" class="form-control">
+                                <label for="email" class="text-dark">Email:</label><br>
+                                <input type="text" name="email" required id="email" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-dark">Hasło:</label><br>
@@ -79,14 +76,17 @@
                                 <br><a href="#" class="text-dark">Zarejestruj się</a>
                             </div>
                         </form>
+                        <p id="form-err"></p>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<?php
-	}
-?>
     </section>
+    <?php
+        if(isset($_REQUEST['bdlgin']) && $_REQUEST['bdlgin'])
+            echo '<script>document.getElementById("form-err").innerHTML = "*Błąd logowania - nieprawidłowe dane";</script>';
+    ?>
 </body>
 </html>
