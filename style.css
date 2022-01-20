@@ -61,3 +61,22 @@ li a:hover{
   .btn-color:hover{
     background-color: #9f73ff;
   }
+
+.b_check_price{
+    background-image: linear-gradient(144deg, #bfa5d9, #9288d7);
+    border: 0;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 20px;
+    line-height: 1em;
+    padding: 10px 10px;
+    cursor: pointer;
+    float: right;
+}
+.t_check_price{
+    width: 15%;
+    display: contents;
+}
+.container table{
+    width: 100%;
+}
