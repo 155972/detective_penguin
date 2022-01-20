@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $logged_in = false;
     if(isset($_SESSION['log_in']) && $_SESSION['log_in'])
         $logged_in = true;
 ?>
@@ -43,7 +44,11 @@
                             <a class="nav-link" href="#">O&nbsp;nas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="log.php">Zaloguj&nbsp;się</a>
+                            <?php if($logged_in){ ?>
+                                <a class="nav-link" href="logout.php">Wyloguj&nbsp;się</a>
+                            <?php }else{ ?>
+                                <a class="nav-link" href="log.php">Zaloguj&nbsp;się</a>
+                            <?php } ?>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="tel:+48622000781">+48&nbsp;622&nbsp;000&nbsp;781</a>
