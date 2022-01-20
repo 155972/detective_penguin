@@ -38,4 +38,5 @@
             header('Location: log.php?bdlgin=1');
 		}
 	}
+    header('Location: index.php');
 ?>
