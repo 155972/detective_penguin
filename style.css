@@ -29,6 +29,16 @@ li:last-child a:hover{
 
 }
 
+.nav-item{
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 li a{
     display: block;
     color: #000;
