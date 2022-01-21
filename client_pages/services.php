@@ -1,12 +1,12 @@
 <style>
     #services{
-        background-color: #e0a4aa;
+        background-image: linear-gradient(144deg, rgba(244, 180, 255, 0.6), rgba(146, 136, 215, 0.6));
         border-radius: 100px;
     }
 </style>
 
 <section>
-<div class="container">
+<div class="container" id="consult">
 
 <h3 class="service_name">Konsultacja detektywistyczna</h3>
 <table>
@@ -17,14 +17,14 @@
             </p>
         </td>
         <td class="t_check_price">
-            <button class="b_check_price">sprawdź cenę</button>
+            <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
         </td>
     </tr>
 </table>
 
 </div>
 
-<div class="container">
+<div class="container" id="wiariograf">
 <h3 class="service_name">Badanie wariografem (wykrywacz kłamstw)</h3>
 <table>
     <tr>
@@ -34,13 +34,13 @@
             </p>
         </td>
         <td class="t_check_price">
-            <button class="b_check_price">sprawdź cenę</button>
+            <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
         </td>
     </tr>
 </table>
 </div>
 
-<div class="container">
+<div class="container" id="observation">
 <h3 class="service_name">Obserwacja osoby</h3>
 <table>
     <tr>
@@ -50,13 +50,13 @@
             </p>
         </td>
         <td class="t_check_price">
-            <button class="b_check_price">sprawdź cenę</button>
+            <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
         </td>
     </tr>
 </table>
 </div>
 
-<div class="container">
+<div class="container" id="pesel">
 <h3 class="service_name">Ustalenie numeru PESEL</h3>
 <table>
     <tr>
@@ -66,13 +66,13 @@
             </p>
         </td>
         <td class="t_check_price">
-            <button class="b_check_price">sprawdź cenę</button>
+            <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
         </td>
     </tr>
 </table>
 </div>
 
-<div class="container">
+<div class="container" id="lost_people">
 <h3 class="service_name">Poszukiwanie osób zaginionych</h3>
 <table>
     <tr>
@@ -82,7 +82,7 @@
             </p>
         </td>
         <td class="t_check_price">
-            <button class="b_check_price">sprawdź cenę</button>
+            <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
         </td>
     </tr>
 </table>

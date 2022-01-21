@@ -3,7 +3,19 @@
 	if(isset($_SESSION['log_in']) && $_SESSION['log_in'])
 		header('Location: index.php');
 ?>
-
+<style>
+    #sign_in{
+        background-image: linear-gradient(144deg, rgba(244, 180, 255, 0.6), rgba(146, 136, 215, 0.6));
+        border-radius: 100px;
+    }
+    tr{
+        border-bottom: 1px solid #000;
+    }
+    a{
+        color: blue;
+    }
+</style>
+<!--
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -25,34 +37,35 @@
                 <div class="navabar" id="mainmenu">
                     <ul class="navbar-nav justify-content-between">
                         <li class="nav-item navbar-brand">
-                            <img class="d-inline-block mr-1 align-bottom" src="logo.PNG" alt="Detekwy Pingwin">
+                            <img class="d-inline-block mr-1 align-bottom" src="logo.PNG" alt="Detektyw Pingwin">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">FAQ</a>
+                            <a class="nav-link" href="index.html">FAQ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cennik</a>
+                            <a class="nav-link" href="index.html">Cennik</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Usługi</a>
+                            <a class="nav-link" href="index.html">Usługi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Kontakt</a>
+                            <a class="nav-link" href="index.html">Kontakt</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">O&nbsp;nas</a>
+                            <a class="nav-link" href="index.html">O&nbsp;nas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Zaloguj&nbsp;się</a>
+                            <a class="nav-link" href="index.html">Zaloguj&nbsp;się</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="tel:+48622000781">+48&nbsp;622&nbsp;000&nbsp;781</a>
                     </ul>
-    
+
                 </div>
-    
+
             </nav>
-    </header>  
+    </header>
+    -->
     <section>
     <div id="login">
         <div class="container">
@@ -88,5 +101,7 @@
         if(isset($_REQUEST['bdlgin']) && $_REQUEST['bdlgin'])
             echo '<script>document.getElementById("form-err").innerHTML = "*Błąd logowania - nieprawidłowe dane";</script>';
     ?>
+<!--
 </body>
 </html>
+-->
