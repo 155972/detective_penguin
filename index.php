@@ -16,52 +16,56 @@
     <title>Detektyw Pingwin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
 </head>
 <body>
-<header>
+    <header>
             <nav class="navbar bg-light navbar-expand-lg">
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji" >
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navabar" id="mainmenu">
                     <ul class="navbar-nav justify-content-between">
-                        <li class="nav-item navbar-brand">
-                            <img class="d-inline-block mr-1 align-bottom" src="logo.PNG" alt="Detekwy Pingwin">
+                        <li class="nav-item navbar-brand" onclick="contentChange('client_pages/home.html')">
+                            <img class="d-inline-block mr-1 align-bottom" src="logo.PNG" alt="Detektyw Pingwin">
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">FAQ</a>
+                        <li class="nav-item" id="FAQ" onclick="contentChange('client_pages/FAQ.html')">
+                            <a class="nav-link">FAQ</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Cennik</a>
+                        <li class="nav-item" id="price_list" onclick="contentChange('client_pages/price_list.php')">
+                            <a class="nav-link">Cennik</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Usługi</a>
+                        <li class="nav-item" id="services" onclick="contentChange('client_pages/services.php')">
+                            <a class="nav-link">Usługi</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Kontakt</a>
+                        <li class="nav-item" id="contact" onclick="contentChange('client_pages/contact.php')">
+                            <a class="nav-link">Kontakt</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">O&nbsp;nas</a>
+                        <li class="nav-item" id="about_us" onclick="contentChange('client_pages/about_us.html')">
+                            <a class="nav-link">O&nbsp;nas</a>
                         </li>
-                        <li class="nav-item">
-                            <?php if($logged_in){ ?>
-                                <a class="nav-link" href="logout.php">Wyloguj&nbsp;się</a>
-                            <?php }else{ ?>
-                                <a class="nav-link" href="log.php">Zaloguj&nbsp;się</a>
-                            <?php } ?>
+                        <li class="nav-item" id="sign_in" onclick="contentChange('log.php')">
+                            <a class="nav-link">Zaloguj&nbsp;się</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="tel:+48622000781">+48&nbsp;622&nbsp;000&nbsp;781</a>
                     </ul>
-                </div>
-            </nav>
-    </header>  
-    
-    <section>
-<?php
 
-?>
-    </section>
+                </div>
+
+            </nav>
+    </header>
+    <script>
+        function contentChange(path){
+            $("#includedContent").load(path);
+        }
+    </script>
+    <div id="includedContent">
+        <script>$("#includedContent").load('client_pages/home.html');</script>
+    </div>
 
 </body>
 </html>
