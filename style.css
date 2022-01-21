@@ -10,7 +10,7 @@
     font-size: 5vh;
 }
 li:last-child a{
-    background-color: #cbb3fe;
+    background-image: linear-gradient(144deg, #bfa5d9, #9288d7);
     border-radius: 100px;
 }
 li:last-child a:hover{
@@ -56,10 +56,10 @@ li a:hover{
   }
 
   .btn-color{
-    background-color: #cbb3fe;
+    background-image: linear-gradient(144deg, #bfa5d9, #9288d7);
   }
   .btn-color:hover{
-    background-color: #9f73ff;
+    background-image: linear-gradient(144deg, #a08bb6, #746ca9);
   }
 
 .b_check_price{
