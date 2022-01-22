@@ -35,56 +35,41 @@
     <header></header>
     <div class="container">
         <table>
-            <tr id="consult">
-                <td style="width: 70%;">
-                    Konsultacja detektywistyczna</br>
-                    <a class="b_check_price" href="services.php" style="font-size: 16px; float:left;">Dowiedz się więcej</a>
-                </td>
-                <td style="width: 15%;">bezpłatnie</td>
-                <td style="width: 15%;">
-                    <a class="b_check_price" href="contact.php" style="font-size: 16px;">Wybierz usługę</a>
-                </td>
-            </tr>
-            <tr id="wiariograf">
-                <td style="width: 70%;">
-                    Badanie wariografem (wykrywacz kłamstw)</br>
-                    <a class="b_check_price" href="services.php" style="font-size: 16px; float:left;">Dowiedz się więcej</a>
-                </td>
-                <td style="width: 15%;">od 1500 zł</td>
-                <td style="width: 15%;">
-                    <a class="b_check_price" href="contact.php" style="font-size: 16px;">Wybierz usługę</a>
-                </td>
-            </tr>
-            <tr id="observation">
-                <td style="width: 70%;">
-                    Obserwacja osoby</br>
-                    <a class="b_check_price" href="services.php" style="font-size: 16px; float:left;">Dowiedz się więcej</a>
-                </td>
-                <td style="width: 15%;">od 800 zł</td>
-                <td style="width: 15%;">
-                    <a class="b_check_price" href="contact.php" style="font-size: 16px;">Wybierz usługę</a>
-                </td>
-            </tr>
-            <tr id="pesel">
-                <td style="width: 70%;">
-                    Ustalenie numeru PESEL</br>
-                    <a class="b_check_price" href="services.php" style="font-size: 16px; float:left;">Dowiedz się więcej</a>
-                </td>
-                <td style="width: 15%;">od 750 zł</td>
-                <td style="width: 15%;">
-                    <a class="b_check_price" href="contact.php" style="font-size: 16px;">Wybierz usługę</a>
-                </td>
-            </tr>
-            <tr id="lost_people">
-                <td style="width: 70%;">
-                    Poszukiwanie osób zaginionych</br>
-                    <a class="b_check_price" href="services.php" style="font-size: 16px; float:left;">Dowiedz się więcej</a>
-                </td>
-                <td style="width: 15%;">indywidualna wycena</td> <!-- cost=NULL w bazie-->
-                <td style="width: 15%;">
-                    <a class="b_check_price" href="contact.php" style="font-size: 16px;">Wybierz usługę</a>
-                </td>
-            </tr>
+            <?php
+                require_once "../connect.php";
+
+                $connect = @new mysqli($host, $db_user, $db_password, $db_name);
+
+                $connect->set_charset('utf8');
+
+                if ($connect->connect_errno!=0) {
+                    echo "Error: ".$connect->connect_errno;
+                }
+                else { 
+                    $services = $connect->query("SELECT ID, name, cost FROM service");
+                    $rows = $services->num_rows;
+
+                    for($i=0; $i<$rows; $i++){
+                        $row = $services->fetch_assoc();
+                        $ID = $row['ID'];
+                        $name = $row['name'];
+                        $cost = $row['cost'];
+echo<<<EOT
+                        <tr id="{$ID}">
+                            <td style="width: 70%;">
+                                {$name}</br>
+                                <a class="b_check_price" href="services.php#{$ID}" style="font-size: 16px; float:left;">Dowiedz się więcej</a>
+                            </td>
+                            <td style="width: 15%;">bezpłatnie</td>
+                            <td style="width: 15%;">
+                                <a class="b_check_price" href="contact.php" style="font-size: 16px;">Wybierz usługę</a>
+                            </td>
+                        </tr>
+EOT;
+                    }
+
+                }
+            ?>
         </table>
     </div>
     
