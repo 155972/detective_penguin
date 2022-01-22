@@ -1,18 +1,19 @@
-	function haslo()
-{
-	var h1 = document.getElementById("password").value;
-	var h2 = document.getElementById("password2").value;
-	if(h2!==h1)
+function haslo() {
+	var pass1 = document.getElementById("password");
+	var pass2 = document.getElementById("password2");
+	if(pass2.value !== pass1.value)
 	{
-		document.getElementById("password2").style.backgroundColor="#ffa0a0";
-		document.getElementById("password").innerHTML="Hasła nie są identyczne!";
-		document.querySelector(".btn").disabled=true;
-		document.querySelector("p").innerHTML="Hasła nie są identyczne!";
+		if(!(pass1 === document.activeElement || pass2 === document.activeElement) && (pass1.value !== "" && pass2.value !== "")){
+			pass2.style.backgroundColor="#ffa0a0";
+			pass1.innerHTML="Hasła nie są identyczne!";
+			document.querySelector(".btn").disabled=true;
+			document.querySelector("p").innerHTML="Hasła nie są identyczne!";
+		}
 	}
 	else
 	{
-		document.getElementById("password2").style.backgroundColor="#FFF";
-		document.getElementById("password").innerHTML="";
+		pass2.style.backgroundColor="#FFF";
+		pass1.innerHTML="";
 		document.querySelector(".btn").disabled=false;
 		document.querySelector("p").innerHTML="";
 	}
