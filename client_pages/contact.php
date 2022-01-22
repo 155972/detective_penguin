@@ -39,11 +39,11 @@
                             <input type="text" name="lastname"></br>
                             <label for="service">Temat konsultacji:</label></br>
                             <select name="service">
-                                <option value="Konsultacja detektywistyczna"/>Konsultacja detektywistyczna</option>
-                                <option value="Badanie wariografem (wykrywacz kłamstw)"/>Badanie wariografem (wykrywacz kłamstw)</option>
-                                <option value="Obserwacja osoby"/>Obserwacja osoby</option>
-                                <option value="Ustalenie numeru PESEL"/>Ustalenie numeru PESEL</option>
-                                <option value="Poszukiwanie osób zaginionych"/>Poszukiwanie osób zaginionych</option>
+                                <option value="Konsultacja detektywistyczna">Konsultacja detektywistyczna</option>
+                                <option value="Badanie wariografem (wykrywacz kłamstw)">Badanie wariografem (wykrywacz kłamstw)</option>
+                                <option value="Obserwacja osoby">Obserwacja osoby</option>
+                                <option value="Ustalenie numeru PESEL">Ustalenie numeru PESEL</option>
+                                <option value="Poszukiwanie osób zaginionych">Poszukiwanie osób zaginionych</option>
                             </select></br>
                             <label for="comment">Komentarz:</label></br>
                             <textarea name="comment"></textarea></br>
