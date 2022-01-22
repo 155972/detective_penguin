@@ -67,39 +67,41 @@
     </header>
     -->
     <section>
-    <div id="login">
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="logCHCK.php" method="post">
-                            <h3 class="text-center text-dark">Login</h3>
-                            <div class="form-group">
-                                <label for="email" class="text-dark">Email:</label><br>
-                                <input type="text" name="email" required id="email" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="text-dark">Hasło:</label><br>
-                                <input type="password" name="password" required id="password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-color btn-md" value="submit">
-                            </div>
-                            <div id="register-link" class="text-right">
-                                <br><a href="#" class="text-dark">Zarejestruj się</a>
-                            </div>
-                        </form>
-                        <p id="form-err"></p>
-                        
+        <div id="login">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" action="logCHCK.php" method="post">
+                                <h3 class="text-center text-dark">Login</h3>
+                                <div class="form-group">
+                                    <label for="email" class="text-dark">Email:</label><br>
+                                    <input type="text" name="email" required id="email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-dark">Hasło:</label><br>
+                                    <input type="password" name="password" required id="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="submit" class="btn btn-color btn-md" value="submit">
+                                </div>
+                                <div id="register-link" class="text-right">
+                                    <br><a href="reg.php" class="text-dark">Zarejestruj się</a>
+                                </div>
+                            </form>
+                            <p id="form-err"></p>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </section>
     <?php
-        if(isset($_REQUEST['bdlgin']) && $_REQUEST['bdlgin'])
+        if(isset($_SESSION['bdlgin']) && htmlspecialchars($_SESSION['bdlgin']) == 1){
             echo '<script>document.getElementById("form-err").innerHTML = "*Błąd logowania - nieprawidłowe dane";</script>';
+            unset($_SESSION['bdlgin']);
+        }
     ?>
 <!--
 </body>
