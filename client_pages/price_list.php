@@ -53,14 +53,23 @@
                         $row = $services->fetch_assoc();
                         $ID = $row['ID'];
                         $name = $row['name'];
-                        $cost = $row['cost'];
+                        if (is_null($row['cost'])){
+                            $cost = "wycena indywidualna";
+                        }
+                        else if ($row['cost']==0){
+                            $cost = "bezpłatnie";
+                        }
+                        else{
+                            $cost = $row['cost']." zł";
+                        }
+
 echo<<<EOT
                         <tr id="{$ID}">
                             <td style="width: 70%;">
                                 {$name}</br>
                                 <a class="b_check_price" href="services.php#{$ID}" style="font-size: 16px; float:left;">Dowiedz się więcej</a>
                             </td>
-                            <td style="width: 15%;">bezpłatnie</td>
+                            <td style="width: 15%;">{$cost}</td>
                             <td style="width: 15%;">
                                 <a class="b_check_price" href="contact.php" style="font-size: 16px;">Wybierz usługę</a>
                             </td>
