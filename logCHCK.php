@@ -1,9 +1,4 @@
 <?php
-    session_start();
-
-	if (isset($_SESSION['log_in']) && $_SESSION['log_in'])
-		header('Location: index.php');
-
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		require_once "connect.php";
 
@@ -15,11 +10,16 @@
 			echo "Error: ".$connect->connect_errno;
 		}
 		else {
-            $email = $_POST['email'];
-            $pass = $_POST['password'];
+            session_start();
+
+            $email = htmlspecialchars($_POST['email']);
+            $pass = htmlspecialchars($_POST['password']);
             $rows_email = $connect->query("SELECT email FROM user WHERE email='$email'")->num_rows;
 
-            if ($rows_email<1) header('Location: log.php?bdlgin=1');
+            if ($rows_email<1){
+                $_SESSION['bdlgin'] = 1;
+                header('Location: log.php');
+            }
 
             $user = $connect->query("SELECT * FROM user WHERE email='$email'")->fetch_assoc();
 
@@ -36,8 +36,9 @@
 
                 header('Location: index.php');
             }
-            header('Location: log.php?bdlgin=1');
+            $_SESSION['bdlgin'] = 1;
+            header('Location: log.php');
 		}
 	}
-    header('Location: index.php');
+    else header('Location: index.php');
 ?>
