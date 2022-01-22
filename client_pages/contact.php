@@ -39,11 +39,32 @@
                             <input type="text" name="lastname"></br>
                             <label for="service">Temat konsultacji:</label></br>
                             <select name="service">
-                                <option value="Konsultacja detektywistyczna">Konsultacja detektywistyczna</option>
-                                <option value="Badanie wariografem (wykrywacz kłamstw)">Badanie wariografem (wykrywacz kłamstw)</option>
-                                <option value="Obserwacja osoby">Obserwacja osoby</option>
-                                <option value="Ustalenie numeru PESEL">Ustalenie numeru PESEL</option>
-                                <option value="Poszukiwanie osób zaginionych">Poszukiwanie osób zaginionych</option>
+                            <?php
+                                require_once "../connect.php";
+
+                                $connect = @new mysqli($host, $db_user, $db_password, $db_name);
+
+                                $connect->set_charset('utf8');
+
+                                if ($connect->connect_errno!=0) {
+                                    echo "Error: ".$connect->connect_errno;
+                                }
+                                else { 
+                                    $services = $connect->query("SELECT ID, name FROM service");
+                                    $rows = $services->num_rows;
+
+                                    for($i=0; $i<$rows; $i++){
+                                        $row = $services->fetch_assoc();
+                                        $name = $row['name'];
+                                        if(isset($_GET["chosen_service"]) && $_GET["chosen_service"] == $row['ID']){
+                                            echo "<option value='{$name}' selected>{$name}</option>";
+                                        }
+                                        else
+                                            echo "<option value='{$name}'>{$name}</option>";
+                                    }
+
+                                }
+                            ?>
                             </select></br>
                             <label for="comment">Komentarz:</label></br>
                             <textarea name="comment"></textarea></br>

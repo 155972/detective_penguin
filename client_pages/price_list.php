@@ -71,7 +71,7 @@ echo<<<EOT
                             </td>
                             <td style="width: 15%;">{$cost}</td>
                             <td style="width: 15%;">
-                                <a class="b_check_price" href="contact.php" style="font-size: 16px;">Wybierz usługę</a>
+                                <a class="b_check_price" href="contact.php?chosen_service={$ID}" style="font-size: 16px;">Wybierz usługę</a>
                             </td>
                         </tr>
 EOT;
