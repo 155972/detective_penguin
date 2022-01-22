@@ -38,7 +38,7 @@
                         </p>
                     </td>
                     <td class="t_check_price">
-                        <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
+                        <a class="b_check_price" href="price_list.php">sprawdź cenę</a>
                     </td>
                 </tr>
             </table>
@@ -55,7 +55,7 @@
                         </p>
                     </td>
                     <td class="t_check_price">
-                        <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
+                        <a class="b_check_price" href="price_list.php">sprawdź cenę</a>
                     </td>
                 </tr>
             </table>
@@ -71,7 +71,7 @@
                         </p>
                     </td>
                     <td class="t_check_price">
-                        <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
+                        <a class="b_check_price" href="price_list.php">sprawdź cenę</a>
                     </td>
                 </tr>
             </table>
@@ -87,7 +87,7 @@
                         </p>
                     </td>
                     <td class="t_check_price">
-                        <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
+                        <a class="b_check_price" href="price_list.php">sprawdź cenę</a>
                     </td>
                 </tr>
             </table>
@@ -103,7 +103,7 @@
                         </p>
                     </td>
                     <td class="t_check_price">
-                        <button class="b_check_price" onclick="contentChange('client_pages/price_list.php')">sprawdź cenę</button>
+                        <a class="b_check_price" href="price_list.php">sprawdź cenę</a>
                     </td>
                 </tr>
             </table>
@@ -111,9 +111,6 @@
     </section>
 
     <script>
-        function contentChange(path){
-        }
-
         $("header").load('menu.php');
     </script>
 </body>

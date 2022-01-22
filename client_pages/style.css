@@ -90,3 +90,8 @@ li a:hover{
 .container table{
     width: 100%;
 }
+
+a.b_check_price:hover{
+    text-decoration: none;
+    color: inherit;
+}
