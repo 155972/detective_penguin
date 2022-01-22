@@ -34,11 +34,11 @@
 
                 $connect->query("UPDATE user SET last_accessed = CURRENT_DATE() WHERE ID = '$uID'");
 
-                header('Location: home.html');
+                header('Location: ../index.php');
             }
             $_SESSION['bdlgin'] = 1;
             header('Location: log.php');
 		}
 	}
-    else header('Location: home.html');
+    else header('Location: ../index.php');
 ?>

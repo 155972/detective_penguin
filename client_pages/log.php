@@ -1,13 +1,13 @@
 <?php
     session_start();
 	if(isset($_SESSION['log_in']) && $_SESSION['log_in'])
-		header('Location: home.html');
+		header('Location: ../index.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="detektyw, pingwin">
 	<meta name="author" content="Agata Grymuła, Patryk Biel, Igor Boradyn, Adrian Bonisławski">
@@ -17,12 +17,6 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <style>
-        #sign_in{
-            background-image: linear-gradient(144deg, rgba(244, 180, 255, 0.6), rgba(146, 136, 215, 0.6));
-            border-radius: 100px;
-        }
-    </style>
 </head>
 <body>
     <header></header>  
@@ -57,16 +51,14 @@
             </div>
         </div>
     </section>
-
-    <script>
-        $("header").load('menu.php');
-    </script>
-
     <?php
         if(isset($_SESSION['bdlgin']) && htmlspecialchars($_SESSION['bdlgin']) == 1){
             echo '<script>document.getElementById("form-err").innerHTML = "*Błąd logowania - nieprawidłowe dane";</script>';
             unset($_SESSION['bdlgin']);
         }
     ?>
+    <script>
+        $("header").load('menu.php');
+    </script>
 </body>
 </html>

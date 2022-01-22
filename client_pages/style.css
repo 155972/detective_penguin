@@ -51,8 +51,8 @@ li a:hover{
     color: black;
 }
 
-#login .container #login-row #login-column #login-box {
-    margin-top: 120px;
+#login .container #login-row #login-column #login-box{
+    margin-top: 40px;
     max-width: 600px;
     height: 320px;
     border: 1px solid #9C9C9C;
@@ -64,6 +64,17 @@ li a:hover{
   #login .container #login-row #login-column #login-box #login-form #register-link {
     margin-top: -85px;
   }
+
+  #reg .container #reg-row #reg-column #reg-box{
+    margin-top: 40px;
+    max-width: 600px;
+    height: 1000px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+  }
+  #reg .container #reg-row #reg-column #reg-box #reg-form {
+    padding: 20px;
+}
 
   .btn-color{
     background-image: linear-gradient(144deg, #bfa5d9, #9288d7);
