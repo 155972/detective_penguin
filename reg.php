@@ -1,3 +1,10 @@
+<?php
+    session_start(); 
+        
+    if (isset($_SESSION['log_in']) && $_SESSION['log_in'])
+        header('Location: index.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -10,6 +17,20 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <SCRIPT type="text/javascript" src='haslo.js'></SCRIPT>
+    <script>
+        function add(ID, u, f, d, v, desc){
+            $.post("reg.php",{
+                rID: ID,
+                user: u, 
+                friend: f, 
+                decision: d,
+                val: v,
+                description: desc
+            }, function(){
+                location.reload();
+            });
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -38,7 +59,7 @@
                             <a class="nav-link" href="#">O&nbsp;nas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Zaloguj&nbsp;się</a>
+                            <a class="nav-link" href="log.php">Zaloguj&nbsp;się</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="tel:+48622000781">+48&nbsp;622&nbsp;000&nbsp;781</a>
@@ -54,23 +75,61 @@
             <div id="reg-row" class="row justify-content-center align-items-center">
                 <div id="reg-column" class="col-md-6">
                     <div id="reg-box" class="col-md-12">
-                        <form id="reg-form" class="form" action="reg.php" method="post">
+                        <form id="reg-form" class="form" action="regCHCK.php" method="post">
                             <h3 class="text-center text-dark">Rejestracja</h3>
                             <div class="form-group">
-                                <label for="email" class="text-dark">Email:</label><br>
+                                <label for="email" class="text-dark">*Email:</label><br>
                                 <input type="text" name="email" required id="email" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-dark">Hasło:</label><br>
-                                <input type="password" name="password" required id="password" class="form-control">
+                                <label for="password" class="text-dark">*Hasło:</label><br>
+                                <input type="password" name="password" required id="password" onkeyup="haslo();" onfocusout="haslo();" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-dark">Powtórz hasło:</label><br>
-                                <input type="password" name="password"  required id="password2" onkeyup="haslo();" class="form-control">
+                                <label for="password" class="text-dark">*Powtórz hasło:</label><br>
+                                <input type="password" name="password"  required id="password2" onkeyup="haslo();" onfocusout="haslo();" class="form-control">
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-color btn-md" value="submit">
-                                <p id="form-err" style="color:red;"></p>
+                                <label for="fName" class="text-dark">*Imię:</label><br>
+                                <input type="text" name="fName" required id="fName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="lName" class="text-dark">*Nazwisko:</label><br>
+                                <input type="text" name="lName" required id="lName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="text-dark">*Telefon:</label><br>
+                                <input type="tel" name="phone" required id="phone" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="city" class="text-dark">Miasto:</label><br>
+                                <input type="text" name="city" id="city" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="postcode" class="text-dark">Kod pocztowy:</label><br>
+                                <input type="text" name="postcode" id="postcode" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="street" class="text-dark">Ulica:</label><br>
+                                <input type="text" name="street" id="street" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="apartnumber" class="text-dark">Numer mieszkania:</label><br>
+                                <input type="text" name="apartnumber" id="apartnumber" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-color btn-md" value="submit" disabled>
+                                <?php
+                                    if(isset($_SESSION['msg'])){
+                                        if($_SESSION['msg'] == 0)
+                                            echo "<p style='color: green;'>*Rejestracja wykonana, sprawdź maila</p>";
+                                        else if($_SESSION['msg'] == 1)
+                                            echo "<p style='color: red;'>*Podany email już ma przypisane konto</p>";
+                                        unset($_SESSION['msg']);
+                                    }
+                                    else 
+                                        echo "<p style='color: red;'></p>";
+                                ?>
                             </div>
                             </div>
                         </form>
@@ -81,43 +140,5 @@
         </div>
     </div>
     </section>
-<?php
-        // jeśli submit zostanie kliknięty
-        {
-            require_once "connect.php";
-            
-            $connect = @new mysqli($host, $db_user, $db_password, $db_name);
-            
-            $connect->query('SET NAMES utf8');
-            $connect->query('SET CHARACTER_SET utf8_unicode_ci');
-            
-            if ($connect->connect_errno!=0) {
-                echo "Error: ".$connect->connect_errno;
-            }
-            else {
-                $email = $_GET['email'];
-                $pass = $_GET['password'];
-                $rows_email = $connect->query("SELECT email FROM user WHERE email='$email'")->num_rows;
-                
-                if ($rows_email<1) header('Location: log.php?bdlgin=1');
-            
-                $user = $connect->query("SELECT * FROM user WHERE email='$email'")->fetch_assoc();
-                
-                if ($user['passwd'] == $pass) {
-                    $_SESSION['log_in'] = true;
-                    $_SESSION['UserID'] = $user['ID'];
-                    $_SESSION['Email'] = $user['email'];
-                    $_SESSION['FName'] = $user['first_name'];
-                    $_SESSION['LName'] = $user['last_name'];
-                    $_SESSION['Phone'] = $user['phone'];
-                    
-                    $connect->query("UPDATE user WHERE email='$email'");
-                    header('Location: index.php');
-                }
-                header('Location: reg.php?bdreg=1');
-            }
-        }
-        echo '<script>document.getElementById("form-err").innerHTML = "Rejestracja wykonana, sprawdź maila";</script>';
-?>
 </body>
 </html>
