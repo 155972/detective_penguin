@@ -60,11 +60,11 @@
 
 echo<<<EOT
                         <tr id="{$ID}">
-                            <td style="width: 70%;">
+                            <td style="width: 50%;">
                                 <h4>{$name}</h4></br>
                                 <a class="b_check_price" href="services.php#{$ID}" style="font-size: 16px; float:left; margin:-25px 0 25px 0;">Dowiedz się więcej</a>
                             </td>
-                            <td style="width: 15%;">{$cost}</td>
+                            <td style="width: 25%; text-align:center;">{$cost}</td>
                             <td style="width: 15%;">
                                 <a class="b_check_price" href="contact.php?chosen_service={$ID}" style="font-size: 16px;">Wybierz usługę</a>
                             </td>

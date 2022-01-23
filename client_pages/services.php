@@ -50,16 +50,14 @@
                     $description = $row['description'];
 echo<<<EOT
                     <div class="container" id="{$ID}">
-                    <h3 class="service_name">{$name}</h3>
+                    <h3 class="service_name" style="float:left; margin-top:20px;">{$name}</h3>
+                    <a class="b_check_price" style="margin-top:20px;" href="price_list.php#{$ID}">sprawdź cenę</a>
                     <table>
                         <tr>
                             <td style="width: 85%;">
-                                <p>
+                                <p style="padding-right:15%;">
                                 {$description}
                                 </p>
-                            </td>
-                            <td class="t_check_price">
-                                <a class="b_check_price" href="price_list.php#{$ID}">sprawdź cenę</a>
                             </td>
                         </tr>
                     </table>
