@@ -9,6 +9,7 @@
     <title>Detektyw Pingwin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
@@ -29,16 +30,19 @@
                 <th>Numer sprawy</th>
                 <th>Klient</th>
                 <th>Data otwarcia</th>
+                <th></th>
             </tr>
             <tr>
                 <td>OO2109217</td>
                 <td>Agata Męczywór</td>
                 <td>21-09-2021</td>
+                <td onclick="$('.right').load('docs_in_case.php');"><i class="far fa-edit" style="color:#3060f0"></i></td>
             </tr>
             <tr>
                 <td>SR1711205</td>
                 <td>Mirosław Malinowski</td>
                 <td>17-11-2021</td>
+                <td onclick="$('.right').load('docs_in_case.php');"><i class="far fa-edit" style="color:#3060f0"></i></td>
             </tr>
         </table>
     </div>

@@ -51,7 +51,7 @@
                 <td style="text-align: right;">0003621</td>
             </tr>
             <tr>
-                <td colspan=2><button class="b_check_price" onclick="$('.right').load('edit.php');">Edytuj dane</button></td>
+                <td colspan=2><button class="b_check_price" onclick="$('.right').load('edit_empl.php');">Edytuj dane</button></td>
             </tr>
         </table>
     </div>
