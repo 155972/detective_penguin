@@ -11,7 +11,7 @@
 }
 .container{
     width:100vw;
-    margin-left:0;
+    margin-left:10%;
 }
 #mainmenu{
     height:95vh;
@@ -42,4 +42,15 @@ li a:hover{
     padding: 10px 10px;
     cursor: pointer;
     float: right;
+}
+.right{
+    margin-top: 100px;
+    margin-left: 25%;
+    width: 95%;
+}
+a{
+    text-decoration: none;
+}
+th{
+    background-color: #DCDCDC;
 }
