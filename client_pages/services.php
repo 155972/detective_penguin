@@ -16,6 +16,7 @@
     <title>Detektyw Pingwin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src='script.js'></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
@@ -49,7 +50,7 @@
                     $name = $row['name'];
                     $description = $row['description'];
 echo<<<EOT
-                    <div class="container" id="{$ID}">
+                    <div class="container col-lg-10" id="{$ID}">
                     <h3 class="service_name" style="float:left; margin-top:20px;">{$name}</h3>
                     <a class="b_check_price" style="margin-top:20px;" href="price_list.php#{$ID}">sprawdź cenę</a>
                     <table>
