@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src='script.js'></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         #services{
@@ -25,7 +26,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="hg();">
     <header></header>
     <section>
         <?php

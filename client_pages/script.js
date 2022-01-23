@@ -18,3 +18,13 @@ function haslo() {
 		document.querySelector("p").innerHTML="";
 	}
 }
+
+function hg() {
+	ID=window.location.hash;
+	ID=ID.slice(1,ID.length);
+	console.log(ID);
+	let pos=document.getElementById(ID);
+	pos.classList.add("light");
+	
+	pos.addEventListener("mouseenter", function(event) { event.target.classList.remove("light")});
+}
