@@ -16,6 +16,7 @@
     <title>Detektyw Pingwin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src='script.js'></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
@@ -28,7 +29,7 @@
 </head>
 <body onload="hg();">
     <header></header>
-    <div class="container">
+    <div class="container col-lg-10">
         <table>
             <?php
                 require_once "../connect.php";

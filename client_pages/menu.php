@@ -37,7 +37,7 @@
                 <?php } ?>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tel:+48622000781">+48&nbsp;622&nbsp;000&nbsp;781</a>
+                <a class="nav-link" href="tel:+48622000781"><i class="fas fa-phone-alt"></i>&nbsp;+48&nbsp;622&nbsp;000&nbsp;781</a>
         </ul>
 
     </div>

@@ -26,5 +26,5 @@ function hg() {
 	let pos=document.getElementById(ID);
 	pos.classList.add("light");
 	
-	pos.addEventListener("mouseenter", function(event) { event.target.classList.remove("light")});
+	pos.addEventListener("mouseleave", function(event) { event.target.classList.remove("light")});
 }
