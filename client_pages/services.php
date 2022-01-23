@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src='script.js'></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         #services{
@@ -25,7 +26,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="hg();">
     <header></header>
     <section>
         <?php
@@ -49,16 +50,14 @@
                     $description = $row['description'];
 echo<<<EOT
                     <div class="container" id="{$ID}">
-                    <h3 class="service_name">{$name}</h3>
+                    <h3 class="service_name" style="float:left; margin-top:20px;">{$name}</h3>
+                    <a class="b_check_price" style="margin-top:20px;" href="price_list.php#{$ID}">sprawdź cenę</a>
                     <table>
                         <tr>
                             <td style="width: 85%;">
-                                <p>
+                                <p style="padding-right:15%;">
                                 {$description}
                                 </p>
-                            </td>
-                            <td class="t_check_price">
-                                <a class="b_check_price" href="price_list.php#{$ID}">sprawdź cenę</a>
                             </td>
                         </tr>
                     </table>

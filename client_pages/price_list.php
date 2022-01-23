@@ -17,21 +17,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src='script.js'></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <style>
         #price_list{
             background-image: linear-gradient(144deg, rgba(244, 180, 255, 0.6), rgba(146, 136, 215, 0.6));
             border-radius: 100px;
         }
-        tr{
-            border-bottom: 1px solid #000;
-        }
-        a{
-            color: blue;
-        }
     </style>
 </head>
-<body>
+<body onload="hg();">
     <header></header>
     <div class="container">
         <table>
@@ -57,7 +52,7 @@
                             $cost = "wycena indywidualna";
                         }
                         else if ($row['cost']==0){
-                            $cost = "bezpłatnie";
+                            $cost = "Bezpłatnie";
                         }
                         else{
                             $cost = $row['cost']." zł";
@@ -65,13 +60,13 @@
 
 echo<<<EOT
                         <tr id="{$ID}">
-                            <td style="width: 70%;">
-                                {$name}</br>
-                                <a class="b_check_price" href="services.php#{$ID}" style="font-size: 16px; float:left;">Dowiedz się więcej</a>
+                            <td style="width: 50%;">
+                                <h4>{$name}</h4></br>
+                                <a class="b_check_price" href="services.php#{$ID}" style="font-size: 16px; float:left; margin:-25px 0 25px 0;">Dowiedz się więcej</a>
                             </td>
-                            <td style="width: 15%;">{$cost}</td>
+                            <td style="width: 25%; text-align:center;">{$cost}</td>
                             <td style="width: 15%;">
-                                <a class="b_check_price" href="contact.php" style="font-size: 16px;">Wybierz usługę</a>
+                                <a class="b_check_price" href="contact.php?chosen_service={$ID}" style="font-size: 16px;">Wybierz usługę</a>
                             </td>
                         </tr>
 EOT;
