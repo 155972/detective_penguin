@@ -2,7 +2,7 @@
     session_start(); 
         
     if (isset($_SESSION['log_in']) && $_SESSION['log_in'])
-        header('Location: index.php');
+        header('Location: ../index.php');
 ?>
 
 <!DOCTYPE html>
