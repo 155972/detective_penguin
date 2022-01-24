@@ -1,4 +1,4 @@
-<div id="popup" style="position: fixed; display: none; padding: 20px; background-color: white; border: 1px solid black;"></div>
+<div id="popup" style="position: fixed; display: none; padding: 20px; background-color: white; border: 1px solid black; border-radius: 25px;"></div>
 <table width="40%">
     <tr style="border-bottom: 1px solid #777;">
         <th style="width:30%">Numer dokumentu</th>
@@ -58,7 +58,7 @@
 
 <script>
     $("#add_doc").click(function(){
-        $('#popup').load('edit_empl.php');
+        $('#popup').load('add_file.php');
         $('#popup').css("display", "block");
     });
 
