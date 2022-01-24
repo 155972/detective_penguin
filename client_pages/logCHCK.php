@@ -33,6 +33,28 @@
                 $_SESSION['Phone'] = $user['phone'];
 
                 $connect->query("UPDATE user SET last_accessed = CURRENT_DATE() WHERE ID = '$uID'");
+                
+                $client = $connect->query("SELECT ID FROM client WHERE ID_user='$uID'")->num_rows;
+
+                if($client >= 1){
+                    $client = $connect->query("SELECT * FROM client WHERE ID_user='$uID'")->fetch_assoc();
+                    $_SESSION['postcode'] = $client['postcode'];
+                    $_SESSION['city'] = $client['city'];
+                    $_SESSION['street'] = $client['street'];
+                    $_SESSION['apartnumber'] = $client['apartnumber'];
+                }
+                else{
+                    $client = $connect->query("SELECT * FROM employee WHERE ID_user='$uID'")->fetch_assoc();
+                    $_SESSION['isEmployee'] = true;
+                    $_SESSION['PESEL'] = $client['PESEL'];
+                    $_SESSION['salary'] = $client['salary'];
+                    $_SESSION['position'] = $client['position'];
+                    $_SESSION['licence_number'] = $client['licence_number'];
+                    $_SESSION['postcode'] = $client['postcode'];
+                    $_SESSION['city'] = $client['city'];
+                    $_SESSION['street'] = $client['street'];
+                    $_SESSION['apartnumber'] = $client['apartnumber'];
+                }
 
                 header('Location: ../index.php');
             }
