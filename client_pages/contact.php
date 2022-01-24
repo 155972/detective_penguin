@@ -59,6 +59,7 @@
                                         <?php
                                             for($i=0; $i<$rows; $i++){
                                                 $row = $services->fetch_assoc();
+                                                $ID = $row['ID'];
                                                 $name = $row['name'];
                                                 if(isset($_GET["chosen_service"]) && $_GET["chosen_service"] == $row['ID']){
                                                     echo "<option value='{$ID}' selected>{$name}</option>";

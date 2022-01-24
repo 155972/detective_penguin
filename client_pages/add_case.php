@@ -20,7 +20,7 @@
 			$comment = htmlspecialchars($_POST['comment']);
 			$date = $_POST['date'];
 			$phone = htmlspecialchars($_POST['phone']);
-            
+
             $caseno = $services[$service].date("dmy")."1";
 
 			$connect->query("INSERT INTO cases(ID_client, casenumber, name, comment, add_date, paid) VALUES ('$uID', '$caseno', '$caseno', '$comment', CURRENT_DATE(), 0)");
