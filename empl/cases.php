@@ -57,7 +57,7 @@
                         $date = $row['consultation'];
 
                         $clientID = $row['ID_client'];
-                        $client = $connect->query("SELECT first_name, last_name FROM user WHERE ID = $clientID")->fetch_assoc();
+                        $client = $connect->query("SELECT first_name, last_name FROM user INNER JOIN client ON user.ID=client.ID_user WHERE client.ID = $clientID")->fetch_assoc();
                         $cName = $client['first_name']." ".$client['last_name'];
 
 echo<<<EOT
