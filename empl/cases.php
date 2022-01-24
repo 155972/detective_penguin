@@ -32,18 +32,46 @@
                 <th>Data otwarcia</th>
                 <th></th>
             </tr>
-            <tr>
-                <td>OO2109217</td>
-                <td>Agata Męczywór</td>
-                <td>21-09-2021</td>
+            <?php
+                require_once "../connect.php";
+                session_start();
+
+                $connect = @new mysqli($host, $db_user, $db_password, $db_name);
+
+                $connect->set_charset('utf8');
+
+                if ($connect->connect_errno!=0) {
+                    echo "Error: ".$connect->connect_errno;
+                }
+                else { 
+                    $uID = $_SESSION['userID'];
+                    $emp = $connect->query("SELECT ID FROM employee WHERE ID_user = '$uID'")->fetch_assoc();
+                    $eID = $emp['ID'];
+                    $cases = $connect->query("SELECT * FROM cases INNER JOIN employee_in_cases ON cases.ID = ID_case WHERE ID_emp = '$eID'");
+                    $rows = $cases->num_rows;
+
+                    for($i=0; $i<$rows; $i++){
+                        $row = $cases->fetch_assoc();
+                        $ID = $row['ID'];
+                        $casenumber = $row['casenumber'];
+                        $date = $row['consultation'];
+
+                        $clientID = $row['ID_client'];
+                        $client = $connect->query("SELECT first_name, last_name FROM user WHERE ID = $clientID")->fetch_assoc();
+                        $cName = $client['first_name']." ".$client['last_name'];
+
+echo<<<EOT
+                <tr>
+                <td>{$casenumber}</td>
+                <td>{$cName}</td>
+                <td>{$date}</td>
                 <td onclick="$('.right').load('docs_in_case.php');"><i class="far fa-edit" style="color:#3060f0"></i></td>
-            </tr>
-            <tr>
-                <td>SR1711205</td>
-                <td>Mirosław Malinowski</td>
-                <td>17-11-2021</td>
-                <td onclick="$('.right').load('docs_in_case.php');"><i class="far fa-edit" style="color:#3060f0"></i></td>
-            </tr>
+                </tr>
+EOT;
+                    }
+
+                }
+        ?>
         </table>
     </div>
     <script>
