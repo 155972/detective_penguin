@@ -1,3 +1,4 @@
+<div id="popup" style="position: fixed; display: none; padding: 20px; background-color: white; border: 1px solid black;"></div>
 <table width="40%">
     <tr style="border-bottom: 1px solid #777;">
         <th style="width:30%">Numer dokumentu</th>
@@ -51,6 +52,17 @@
     <tr>
         <td style="float:left"><a href="cases.php"><button class="b_check_price">Powrót</button></a></td>
         <td colspan=4>
-        <button class="b_check_price" onclick="$('.right').load('edit_empl.php');">Dodaj plik</button></td> <!-- tu by się przydał jakiś pop up, na dodawanie pliku-->
+        <button id="add_doc" class="b_check_price">Dodaj plik</button></td> <!-- tu by się przydał jakiś pop up, na dodawanie pliku-->
     </tr>
 </table>
+
+<script>
+    $("#add_doc").click(function(){
+        $('#popup').load('edit_empl.php');
+        $('#popup').css("display", "block");
+    });
+
+    $("#popup").focusout(function(){
+        $('#popup').css("display", "none");
+    });
+</script>
