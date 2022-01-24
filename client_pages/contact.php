@@ -3,6 +3,19 @@
     $logged_in = false;
     if(isset($_SESSION['log_in']) && $_SESSION['log_in'])
         $logged_in = true;
+
+    require_once "../connect.php";
+
+    $connect = @new mysqli($host, $db_user, $db_password, $db_name);
+
+    $connect->set_charset('utf8');
+
+    if ($connect->connect_errno!=0) {
+        echo "Error: ".$connect->connect_errno;
+    }
+    else { 
+        $services = $connect->query("SELECT ID, name FROM service");
+        $rows = $services->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -35,37 +48,23 @@
                             <div id="cont-row" class="align-items-center">
                                 <div id="cont-column">
                                     <div id="cont-box" class="col-md-12">
-                                    <form class="form">
+                                    <?php if($logged_in) {?>
+                                    <form class="form" method="POST" action="add_case.php">
                                         <label class="text-dark" for="firstname">Imię:</label></br>
-                                        <input class="form-control" type="text" name="firstname"></br>
+                                        <input class="form-control" type="text" name="firstname" value="<?php echo $_SESSION['fName']; ?>"></br>
                                         <label class="text-dark" for="lastname">Nazwisko:</label></br>
-                                        <input class="form-control"  type="text" name="lastname"></br>
+                                        <input class="form-control"  type="text" name="lastname" value="<?php echo $_SESSION['lName']; ?>"></br>
                                         <label class="text-dark" for="service">Temat konsultacji:</label></br>
                                         <select class="form-control" name="service">
                                         <?php
-                                            require_once "../connect.php";
-
-                                            $connect = @new mysqli($host, $db_user, $db_password, $db_name);
-
-                                            $connect->set_charset('utf8');
-
-                                            if ($connect->connect_errno!=0) {
-                                                echo "Error: ".$connect->connect_errno;
-                                            }
-                                            else { 
-                                                $services = $connect->query("SELECT ID, name FROM service");
-                                                $rows = $services->num_rows;
-
-                                                for($i=0; $i<$rows; $i++){
-                                                    $row = $services->fetch_assoc();
-                                                    $name = $row['name'];
-                                                    if(isset($_GET["chosen_service"]) && $_GET["chosen_service"] == $row['ID']){
-                                                        echo "<option value='{$name}' selected>{$name}</option>";
-                                                    }
-                                                    else
-                                                        echo "<option value='{$name}'>{$name}</option>";
+                                            for($i=0; $i<$rows; $i++){
+                                                $row = $services->fetch_assoc();
+                                                $name = $row['name'];
+                                                if(isset($_GET["chosen_service"]) && $_GET["chosen_service"] == $row['ID']){
+                                                    echo "<option value='{$ID}' selected>{$name}</option>";
                                                 }
-
+                                                else
+                                                    echo "<option value='{$ID}'>{$name}</option>";
                                             }
                                         ?>
                                         </select></br>
@@ -76,10 +75,19 @@
                                         <label class="text-dark" for="time">Godzina konsultacji</label></br>
                                         <input class="form-control" type="time" name="time"></br>
                                         <label class="text-dark" for="phone">Numer kontaktowy</label></br>
-                                        <input class="form-control" type="tel" name="phone"></br>
+                                        <input class="form-control" type="tel" name="phone" value="<?php echo $_SESSION['phone']; ?>"></br>
                                         <p><input class="btn btn-color btn-md" type="submit" value="wyslij"></p>
                                         </br>
                                     </form>
+                                    <?php 
+                                            if (isset($_SESSION['msg']) && $_SESSION['msg'] == 0){
+                                                echo "<p style='color: green;'>Formularz został wysłany, nasz konsultant skontaktuje się w wyznaczonym terminie.</p>";
+                                                unset($_SESSION['msg']);
+                                            }
+                                        } else { 
+                                    ?>
+                                        <p> <a href="log.php">Zaloguj się</a>, aby wysłać formularz zgłoszeniowy</p>
+                                    <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -102,3 +110,5 @@
     </script>
 </body>
 </html>
+
+<?php } ?>
