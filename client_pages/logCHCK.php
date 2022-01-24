@@ -26,11 +26,11 @@
             if ($user['passwd'] == $pass) {
                 $uID = $user['ID'];
                 $_SESSION['log_in'] = true;
-                $_SESSION['UserID'] = $uID;
-                $_SESSION['Email'] = $user['email'];
-                $_SESSION['FName'] = $user['first_name'];
-                $_SESSION['LName'] = $user['last_name'];
-                $_SESSION['Phone'] = $user['phone'];
+                $_SESSION['userID'] = $uID;
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['fName'] = $user['first_name'];
+                $_SESSION['lName'] = $user['last_name'];
+                $_SESSION['phone'] = $user['phone'];
 
                 $connect->query("UPDATE user SET last_accessed = CURRENT_DATE() WHERE ID = '$uID'");
                 
