@@ -16,9 +16,10 @@
     <title>Detektyw Pingwin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <script type="text/javascript" src='haslo.js'></script>
+    <script type="text/javascript" src='script.js'></script>
 </head>
 <body>
     <header></header>  
