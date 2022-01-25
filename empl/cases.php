@@ -65,7 +65,7 @@ echo<<<EOT
                 <td>{$casenumber}</td>
                 <td>{$cName}</td>
                 <td>{$date}</td>
-                <td onclick="$('.right').load('docs_in_case.php');"><i class="far fa-edit" style="color:#3060f0"></i></td>
+                <td onclick="$('.right').load('docs_in_case.php', { caseID: {$ID} });"><i class="far fa-edit" style="color:#3060f0"></i></td>
                 </tr>
 EOT;
                     }
