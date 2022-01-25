@@ -5,7 +5,7 @@
 ?>
 
 <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
-    <table width="30%">
+    <table style="width:30vw; min-width:400px;">
         <tr>
             <td><label for="firstname">Imię: </label></td>
             <td style="text-align: right;"><input type="text" name="firstname" value="<?php echo $_SESSION['fName'] ?>"></td>

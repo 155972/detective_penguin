@@ -25,7 +25,7 @@
         </header>
     </div>
     <div class="right">
-        <table width="50%">
+        <table style="width:50vw; min-width:400px;">
             <tr style="border-bottom: 1px solid #777;">
                 <th>Numer sprawy</th>
                 <th>Klient</th>

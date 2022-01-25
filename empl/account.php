@@ -62,7 +62,7 @@
 
     </div>
     <div class="right">
-        <table width="30%">
+        <table style="width:30vw; min-width:400px;">
             <tr>
                 <td>Imię: </td>
                 <td style="text-align: right;"><?php echo $_SESSION['fName'] ?></td>
