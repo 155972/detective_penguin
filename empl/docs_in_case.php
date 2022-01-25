@@ -1,7 +1,7 @@
 <div id="popup" style="position: fixed; display: none; z-index: 1; padding-top: 200px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4);">
     <div id="popup-content" style="position: relative; width: fit-content; margin: auto; padding: 20px; background-color: white; border: 1px solid black; border-radius: 25px;"></div>
 </div>
-<table width="40%">
+<table style="width:50vw; min-width:400px;">
     <tr style="border-bottom: 1px solid #777;">
         <th style="width:30%">Numer dokumentu</th>
         <th>Typ</th>
